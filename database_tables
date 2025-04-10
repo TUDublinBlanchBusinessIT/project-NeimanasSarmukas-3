@@ -1,0 +1,22 @@
+
+create database cruise;
+use cruise;
+
+create table ships (
+ship_id int auto_increment,
+ship_name varchar(30),
+capacity int,
+primary key (ship_id)
+);
+
+create table crew_members (
+crew_id int auto_increment,
+crew_name varchar(30),
+crew_role varchar(30),
+ship_id int,
+primary key (crew_id),
+foreign key (ship_id) references ships(ship_id)
+);
+
+insert into ships(ship_name, capacity) values ('Bigboy', 10000);
+insert into crew_members(crew_name, crew_role, ship_id) values ('Billy', 'captain', 1);
