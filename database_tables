@@ -1,4 +1,4 @@
-
+drop database if exists cruise;
 create database cruise;
 use cruise;
 
@@ -18,5 +18,33 @@ primary key (crew_id),
 foreign key (ship_id) references ships(ship_id)
 );
 
-insert into ships(ship_name, capacity) values ('Bigboy', 10000);
-insert into crew_members(crew_name, crew_role, ship_id) values ('Billy', 'captain', 1);
+create table ports(
+port_id int auto_increment,
+port_name varchar(30),
+port_country varchar(30),
+primary key (port_id)
+);
+
+
+create table cruises(
+cruise_id int auto_increment,
+ship_id int,
+dep_date date,
+return_date date,
+cruise_origin int,
+cruise_destination int,
+primary key (cruise_id),
+foreign key (cruise_origin) references ports(port_id),
+foreign key (cruise_destination) references ports(port_id),
+foreign key (ship_id) references ships(ship_id)
+);
+
+
+
+
+
+
+insert into ships (ship_name, capacity) values ('Bigboy', 10000);
+insert into crew_members (crew_name, crew_role, ship_id) values ('Billy', 'captain', 1);
+insert into ports (port_name, port_country) values ('barcalona', 'Spain');
+insert into cruises (ship_id, dep_date, return_date, cruise_origin, cruise_destination) values (1, '2025-07-01', '2025-07-08', 1 , 1);
