@@ -12,11 +12,11 @@
             <td>{!! $crewMember->crew_role !!}</td>
             <td>{!! $crewMember->ship_id !!}</td>
             <td>
-                {!! Form::open(['route' => ['crewMembers.destroy', $crewMember->id], 'method' => 'delete']) !!}
+                {!! Form::open(['route' => ['crew_members.destroy', $crewMember->crew_id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
-                    <a href="{!! route('crewMembers.show', [$crewMember->id]) !!}" class='btn btn-default btn-xs'><i class="far fa-eye"></i></i></a>
-                    <a href="{!! route('crewMembers.edit', [$crewMember->id]) !!}" class='btn btn-default btn-xs'><i class="far fa-edit"></i></i></a>
-                    {!! Form::button('<i class="far fa-trash-alt"></i></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    <a href="{!! route('crew_members.show', [$crewMember->crew_id]) !!}" class='btn btn-default btn-xs'><i class="far fa-eye"></i></a>
+                    <a href="{!! route('crew_members.edit', [$crewMember->crew_id]) !!}" class='btn btn-default btn-xs'><i class="far fa-edit"></i></a>
+                    {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                 </div>
                 {!! Form::close() !!}
             </td>

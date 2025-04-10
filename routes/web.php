@@ -21,7 +21,7 @@ Route::get('/', function () {
 Route::resource('ships', App\Http\Controllers\shipController::class);
 
 
-Route::resource('crewMembers', App\Http\Controllers\crew_memberController::class);
+Route::resource('crew_members', App\Http\Controllers\crew_memberController::class);
 
 
 Route::resource('cruises', App\Http\Controllers\cruiseController::class);
