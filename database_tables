@@ -53,7 +53,17 @@ foreign key (cruise_id) references cruises(cruise_id)
 
 
 insert into ships (ship_name, capacity) values ('Bigboy', 10000);
+insert into ships (ship_name, capacity) values ('Arthur Morgan', 12000);
+insert into ships (ship_name, capacity) values ('OhhYeahhh', 7000);
+
 insert into crew_members (crew_name, crew_role, ship_id) values ('Billy', 'captain', 1);
-insert into ports (port_name, port_country) values ('barcalona', 'Spain');
+insert into crew_members (crew_name, crew_role, ship_id) values ('Johnny', 'bartender', 1);
+insert into crew_members (crew_name, crew_role, ship_id) values ('Anthony', 'cleaner', 2);
+
+
+insert into ports (port_name, port_country) values ('Barcalona', 'Spain');
+insert into ports (port_name, port_country) values ('Nice', 'France');
+
 insert into cruises (ship_id, dep_date, return_date, cruise_origin, cruise_destination) values (1, '2025-07-01', '2025-07-08', 1 , 1);
+insert into cruises (ship_id, dep_date, return_date, cruise_origin, cruise_destination) values (2, '2025-07-01', '2025-07-012', 1 , 2);
 insert into passengers (pass_name, pass_email, pass_cabin, cruise_id) values ('Messi', 'messi@gmail.com', 1443, 1);
