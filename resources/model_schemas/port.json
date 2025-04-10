@@ -1,0 +1,46 @@
+[
+    {
+        "name": "port_id",
+        "dbType": "integer,true",
+        "htmlType": null,
+        "validations": null,
+        "searchable": false,
+        "fillable": false,
+        "primary": true,
+        "inForm": false,
+        "inIndex": false,
+        "inView": false
+    },
+    {
+        "name": "port_name",
+        "dbType": "string,30:nullable",
+        "htmlType": "text",
+        "validations": "nullable|string|max:30|nullable|string|max:30",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "name": "port_country",
+        "dbType": "string,30:nullable",
+        "htmlType": "text",
+        "validations": "nullable|string|max:30|nullable|string|max:30",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true,
+        "inView": true
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Cruise,cruise_origin"
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Cruise,cruise_destination"
+    }
+]

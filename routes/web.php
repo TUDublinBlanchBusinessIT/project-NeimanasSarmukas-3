@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::resource('ships', App\Http\Controllers\shipController::class);
+
+
+Route::resource('crewMembers', App\Http\Controllers\crew_memberController::class);
+
+
+Route::resource('cruises', App\Http\Controllers\cruiseController::class);
+
+
+Route::resource('ports', App\Http\Controllers\portController::class);
+
+
+Route::resource('passengers', App\Http\Controllers\PassengerController::class);
