@@ -60,7 +60,7 @@ class crew_memberController extends AppBaseController
 
         Flash::success('Crew Member saved successfully.');
 
-        return redirect(route('crewMembers.index'));
+        return redirect(route('crew_members.index'));
     }
 
     /**
@@ -77,10 +77,10 @@ class crew_memberController extends AppBaseController
         if (empty($crewMember)) {
             Flash::error('Crew Member not found');
 
-            return redirect(route('crewMembers.index'));
+            return redirect(route('crew_members.index'));
         }
 
-        return view('crew_members.show')->with('crewMember', $crewMember);
+        return view('crew_members.show')->with('crew_member', $crewMember);
     }
 
     /**
@@ -97,10 +97,10 @@ class crew_memberController extends AppBaseController
         if (empty($crewMember)) {
             Flash::error('Crew Member not found');
 
-            return redirect(route('crewMembers.index'));
+            return redirect(route('crew_members.index'));
         }
 
-        return view('crew_members.edit')->with('crewMember', $crewMember);
+        return view('crew_members.edit')->with('crew_member', $crewMember);
     }
 
     /**
@@ -118,14 +118,14 @@ class crew_memberController extends AppBaseController
         if (empty($crewMember)) {
             Flash::error('Crew Member not found');
 
-            return redirect(route('crewMembers.index'));
+            return redirect(route('crew_members.index'));
         }
 
         $crewMember = $this->crewMemberRepository->update($request->all(), $id);
 
         Flash::success('Crew Member updated successfully.');
 
-        return redirect(route('crewMembers.index'));
+        return redirect(route('crew_members.index'));
     }
 
     /**
@@ -144,13 +144,13 @@ class crew_memberController extends AppBaseController
         if (empty($crewMember)) {
             Flash::error('Crew Member not found');
 
-            return redirect(route('crewMembers.index'));
+            return redirect(route('crew_members.index'));
         }
 
         $this->crewMemberRepository->delete($id);
 
         Flash::success('Crew Member deleted successfully.');
 
-        return redirect(route('crewMembers.index'));
+        return redirect(route('crew_members.index'));
     }
 }
