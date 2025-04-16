@@ -1,69 +1,86 @@
-drop database if exists cruise;
-create database cruise;
-use cruise;
+DROP DATABASE IF EXISTS cruise;
+CREATE DATABASE cruise;
+USE cruise;
 
-create table ships (
-ship_id int auto_increment,
-ship_name varchar(30),
-capacity int,
-primary key (ship_id)
+CREATE TABLE ships (
+    ship_id INT AUTO_INCREMENT,
+    ship_name VARCHAR(30),
+    capacity INT,
+    created_at DATETIME,
+    updated_at DATETIME,
+    deleted_at DATETIME,
+    PRIMARY KEY (ship_id)
 );
 
-create table crew_members (
-crew_id int auto_increment,
-crew_name varchar(30),
-crew_role varchar(30),
-ship_id int,
-primary key (crew_id),
-foreign key (ship_id) references ships(ship_id)
+CREATE TABLE crew_members (
+    crew_id INT AUTO_INCREMENT,
+    crew_name VARCHAR(30),
+    crew_role VARCHAR(30),
+    ship_id INT,
+    created_at DATETIME,
+    updated_at DATETIME,
+    deleted_at DATETIME,
+    PRIMARY KEY (crew_id),
+    FOREIGN KEY (ship_id) REFERENCES ships(ship_id)
 );
 
-create table ports(
-port_id int auto_increment,
-port_name varchar(30),
-port_country varchar(30),
-primary key (port_id)
+CREATE TABLE ports (
+    port_id INT AUTO_INCREMENT,
+    port_name VARCHAR(30),
+    port_country VARCHAR(30),
+    created_at DATETIME,
+    updated_at DATETIME,
+    deleted_at DATETIME,
+    PRIMARY KEY (port_id)
 );
 
-
-create table cruises(
-cruise_id int auto_increment,
-ship_id int,
-dep_date date,
-return_date date,
-cruise_origin int,
-cruise_destination int,
-primary key (cruise_id),
-foreign key (cruise_origin) references ports(port_id),
-foreign key (cruise_destination) references ports(port_id),
-foreign key (ship_id) references ships(ship_id)
+CREATE TABLE cruises (
+    cruise_id INT AUTO_INCREMENT,
+    ship_id INT,
+    dep_date DATE,
+    return_date DATE,
+    cruise_origin INT,
+    cruise_destination INT,
+    created_at DATETIME,
+    updated_at DATETIME,
+    deleted_at DATETIME,
+    PRIMARY KEY (cruise_id),
+    FOREIGN KEY (cruise_origin) REFERENCES ports(port_id),
+    FOREIGN KEY (cruise_destination) REFERENCES ports(port_id),
+    FOREIGN KEY (ship_id) REFERENCES ships(ship_id)
 );
 
-create table passengers(
-pass_id int auto_increment,
-pass_name varchar(30),
-pass_email varchar(30),
-pass_cabin int,
-cruise_id int,
-primary key (pass_id),
-foreign key (cruise_id) references cruises(cruise_id)
+CREATE TABLE passengers (
+    pass_id INT AUTO_INCREMENT,
+    pass_name VARCHAR(30),
+    pass_email VARCHAR(30),
+    pass_cabin INT,
+    cruise_id INT,
+    created_at DATETIME,
+    updated_at DATETIME,
+    deleted_at DATETIME,
+    PRIMARY KEY (pass_id),
+    FOREIGN KEY (cruise_id) REFERENCES cruises(cruise_id)
 );
 
+-- Sample data
+INSERT INTO ships (ship_name, capacity, created_at, updated_at) VALUES 
+('Bigboy', 10000, NOW(), NOW()),
+('Arthur Morgan', 12000, NOW(), NOW()),
+('OhhYeahhh', 7000, NOW(), NOW());
 
+INSERT INTO crew_members (crew_name, crew_role, ship_id, created_at, updated_at) VALUES 
+('Billy', 'captain', 1, NOW(), NOW()),
+('Johnny', 'bartender', 1, NOW(), NOW()),
+('Anthony', 'cleaner', 2, NOW(), NOW());
 
+INSERT INTO ports (port_name, port_country, created_at, updated_at) VALUES 
+('Barcalona', 'Spain', NOW(), NOW()),
+('Nice', 'France', NOW(), NOW());
 
-insert into ships (ship_name, capacity) values ('Bigboy', 10000);
-insert into ships (ship_name, capacity) values ('Arthur Morgan', 12000);
-insert into ships (ship_name, capacity) values ('OhhYeahhh', 7000);
+INSERT INTO cruises (ship_id, dep_date, return_date, cruise_origin, cruise_destination, created_at, updated_at) VALUES 
+(1, '2025-07-01', '2025-07-08', 1 , 1, NOW(), NOW()),
+(2, '2025-07-01', '2025-07-12', 1 , 2, NOW(), NOW());
 
-insert into crew_members (crew_name, crew_role, ship_id) values ('Billy', 'captain', 1);
-insert into crew_members (crew_name, crew_role, ship_id) values ('Johnny', 'bartender', 1);
-insert into crew_members (crew_name, crew_role, ship_id) values ('Anthony', 'cleaner', 2);
-
-
-insert into ports (port_name, port_country) values ('Barcalona', 'Spain');
-insert into ports (port_name, port_country) values ('Nice', 'France');
-
-insert into cruises (ship_id, dep_date, return_date, cruise_origin, cruise_destination) values (1, '2025-07-01', '2025-07-08', 1 , 1);
-insert into cruises (ship_id, dep_date, return_date, cruise_origin, cruise_destination) values (2, '2025-07-01', '2025-07-12', 1 , 2);
-insert into passengers (pass_name, pass_email, pass_cabin, cruise_id) values ('Messi', 'messi@gmail.com', 1443, 1);
+INSERT INTO passengers (pass_name, pass_email, pass_cabin, cruise_id, created_at, updated_at) VALUES 
+('Messi', 'messi@gmail.com', 1443, 1, NOW(), NOW());
