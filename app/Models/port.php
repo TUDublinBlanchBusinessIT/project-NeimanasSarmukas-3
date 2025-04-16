@@ -23,6 +23,8 @@ class port extends Model
     use HasFactory;
 
     public $table = 'ports';
+
+    protected $primaryKey = 'port_id';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
