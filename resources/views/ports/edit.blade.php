@@ -11,7 +11,7 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($port, ['route' => ['ports.update', $port->id], 'method' => 'patch']) !!}
+                   {!! Form::model($port, ['route' => ['ports.update', $port->port_id], 'method' => 'patch']) !!}
 
                         @include('ports.fields')
 
