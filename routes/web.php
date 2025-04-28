@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/cruises', function () {
+    return view('cruises');
+})->middleware(['auth'])->name('cruises');
+
+require __DIR__.'/auth.php';
 
 Route::resource('ships', App\Http\Controllers\shipController::class);
 
