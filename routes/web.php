@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/cruises', function () {
-    return view('cruises');
-})->middleware(['auth'])->name('cruises');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
@@ -36,3 +36,9 @@ Route::resource('ports', App\Http\Controllers\portController::class);
 
 
 Route::resource('passengers', App\Http\Controllers\PassengerController::class);
+
+Route::get('/loggedInMember','App\Http\Controllers\passengerController@getLoggedInMemberDetails');
+
+Route::resource('customers', App\Http\Controllers\customerController::class);
+
+Route::resource('home', App\Http\Controllers\HomeController::class);

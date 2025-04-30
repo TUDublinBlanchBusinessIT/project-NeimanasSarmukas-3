@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
+use Illuminate\Support\Facades\Auth;
 
 class PassengerController extends AppBaseController
 {
@@ -153,4 +154,5 @@ class PassengerController extends AppBaseController
 
         return redirect(route('passengers.index'));
     }
+
 }
