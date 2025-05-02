@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container text-center mt-5">
-    <h1 class="mb-4">Welcome to the Cruise Booking System</h1>
+    <h1 class="mb-4">Welcome to the Cruise Management System</h1>
 
     <div class="d-grid gap-3 col-6 mx-auto">
         <a href="{{ route('ships.index') }}" class="btn btn-info btn-lg">View Ships</a>

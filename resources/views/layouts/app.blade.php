@@ -21,10 +21,22 @@
           <div class="container-fluid">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href=https://laravel.com/docs>Laravel Documentation</a>
+                <a class="nav-link" href="{{ route('home.index') }}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href=https://laracasts.com/>Laravel Video Tutorials</a>
+                <a class="nav-link" href="{{ route('passengers.index') }}">Passengers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('cruises.index') }}">Cruises</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('ports.index') }}">Ports</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('ships.index') }}">Ships</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('crew_members.index') }}">Crew Members</a>
               </li>
             </ul>
           </div>
